@@ -1,0 +1,44 @@
+Nows
++git
+ .make github
+ .add to github
+
++adding uses actual textS
+ .notes
+ .sections
+
+
+Todo
++Add core functions
+-get one note working with mock data (probably unsaved)
+ .adding uses actual text
+ .moving notes
+ .adding color
+ .deleting notes
+ .make look passable
+-add nesting and data saving
+ .idk what order to do these in
+
+
+
+Roadmap
+Goal 1: Minimum viable product
++has core functionality
++looks passable
+
+Goal 2: Polish
++additional features
++good looking design
+
+Goal 3: Finish
++clean up code
++optimize
++finalize feature list
++finalize design and effects
++add to resume/portfolio/readme/host
+
+Goal 4: Public Release
++tutorial
++license/etc.
++package?
++distribute

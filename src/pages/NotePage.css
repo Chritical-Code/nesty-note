@@ -1,0 +1,62 @@
+.title{
+    text-align: center;
+}
+
+.sections{
+    flex-direction: row;
+    overflow-x: scroll;
+    min-height: 100vh;
+}
+
+.section{
+    flex-direction: column;
+    border: 2px dotted black;
+    border-top: 0px;
+    width: 100%;
+}
+.section h2{
+    padding-left: 20px;
+    margin: 0px;
+}
+
+.sectionTitle{
+    text-align: center;
+}
+
+.notes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.note{
+    width: 175px;
+    height: 125px;
+    margin: 20px;
+    border: 1px solid black;
+
+    text-align: left;
+    padding: 10px;
+    overflow-y: scroll;
+    word-wrap: break-word;
+
+    background-color: rgb(255, 255, 98);
+    color: black;
+    box-shadow: 1px 1px 2px black;
+}
+
+.toolbar{
+    flex-direction: row;
+    border: 2px solid black;
+    align-items: center;
+    padding-left: 10px;
+}
+.toolbar button{
+    margin-left: 10px;
+}
+
+.addSectionButton{
+    width: 80px;
+    height: 50px;
+}

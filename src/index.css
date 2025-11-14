@@ -1,0 +1,25 @@
+:root{
+  /*--bgColor: rgb(44, 44, 44);*/
+  /*--fontColor: rgb(231, 231, 231);*/
+  --bgColor: white;
+  --fontColor: black;
+}
+
+body{
+  background-color: var(--bgColor);
+  color: var(--fontColor);
+  margin: 0px;
+}
+
+div{
+  display: flex;
+  flex-direction: column;
+}
+
+.glue{
+  flex-grow: 1;
+}
+
+p{
+  margin: 0px;
+}
