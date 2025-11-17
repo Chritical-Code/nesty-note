@@ -30,9 +30,8 @@ export default function Section({title}: SectionProps){
             <div className="notes">
                 {notes}
 
-                <div className="note">
-                    <input type="text"></input>
-                    <button onClick={() => handleAddNote("hello")}>add</button>
+                <div className="note addNoteDiv">
+                    <button className="addNote" onClick={() => handleAddNote("")}>add note</button>
                 </div>
             </div>
         </div>

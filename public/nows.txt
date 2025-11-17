@@ -1,10 +1,6 @@
 Nows
-+git
- .make github
- .add to github
-
-+adding uses actual textS
- .notes
++adding uses actual text
+ .switch to new style: all notes editable
  .sections
 
 
