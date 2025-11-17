@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Note from "./Note";
+import "./Section.css";
 
 type SectionProps = {
     title: string;
@@ -30,7 +31,7 @@ export default function Section({title}: SectionProps){
             <div className="notes">
                 {notes}
 
-                <div className="note addNoteDiv">
+                <div className="stickyNote addNoteDiv">
                     <button className="addNote" onClick={() => handleAddNote("")}>add note</button>
                 </div>
             </div>

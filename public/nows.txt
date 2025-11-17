@@ -1,6 +1,5 @@
 Nows
 +adding uses actual text
- .switch to new style: all notes editable
  .sections
 
 

@@ -1,3 +1,5 @@
+import "./Toolbar.css";
+
 type ToolbarProps = {
     onAddSection: Function;
 }
@@ -7,7 +9,7 @@ export default function Toolbar({onAddSection}: ToolbarProps){
         <div className="toolbar">
             <p>Toolbar:</p>
 
-            <button className="addSectionButton" onClick={() => onAddSection("Test")}>Add Section</button>
+            <button className="addSection" onClick={() => onAddSection("Test")}>Add Section</button>
         </div>
     );
 }

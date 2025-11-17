@@ -1,0 +1,15 @@
+.toolbar{
+    flex-direction: row;
+    border: 2px solid black;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.toolbar button{
+    margin-left: 10px;
+}
+
+.addSection{
+    width: 80px;
+    height: 50px;
+}
