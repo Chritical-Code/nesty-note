@@ -8,9 +8,9 @@ export default function NotePage(){
     const [sectionData, setSectionData] = useState(["Section 1"]);
 
     //map section data to sections
-    const sections = sectionData.map((inTitle) => {
+    const sections = sectionData.map((inTitle, index) => {
         return(
-            <Section title={inTitle}></Section>
+            <Section key={index} title={inTitle}></Section>
         );
     });
 

@@ -7,7 +7,7 @@ type NoteProps = {
 export default function Note({text}: NoteProps){
     return(
         <div className="stickyNote">
-            <textarea className="textArea">{text}</textarea>
+            <textarea className="textArea" defaultValue={text}></textarea>
         </div>
     );
 }

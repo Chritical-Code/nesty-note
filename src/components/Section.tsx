@@ -11,9 +11,9 @@ export default function Section({title}: SectionProps){
     const [noteData, setNoteData] = useState(Array(0));
 
     //map note data to notes
-    const notes = noteData.map((inText) => {
+    const notes = noteData.map((inText, index) => {
         return(
-            <Note text={inText}></Note>
+            <Note key={index} text={inText}></Note>
         );
     });
     

@@ -1,4 +1,6 @@
 Nows
++focus on new textarea
+
 +adding uses actual text
  .sections
 
