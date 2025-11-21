@@ -1,5 +1,6 @@
 Nows
 +focus on new textarea
+ - https://react.dev/learn/manipulating-the-dom-with-refs 
 
 +adding uses actual text
  .sections
