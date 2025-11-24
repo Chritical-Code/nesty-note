@@ -1,28 +1,32 @@
-import { useState, type TextareaHTMLAttributes } from 'react';
-import { useRef } from 'react';
+import { useState} from 'react';
+import { useEffect } from 'react';
 import Note from "./Note";
 import "./Section.css";
 
 type SectionProps = {
     title: string;
+    refTextArea: React.Ref<HTMLTextAreaElement>;
+    focusNote: Function;
 }
 
-export default function Section({title}: SectionProps){
-    //states
+export default function Section({title, refTextArea, focusNote}: SectionProps){
     const [noteData, setNoteData] = useState(Array(0));
-    const myRef = useRef<HTMLTextAreaElement>(null);
+
+    //effects
+    useEffect(() => {
+        focusNote();
+    });
 
     //map note data to notes
     const notes = noteData.map((inText, index) => {
         return(
-            <Note key={index} text={inText} inRef={myRef}></Note>
+            <Note key={index} text={inText} refTextArea={refTextArea}></Note>
         );
     });
     
     //adding notes
     function handleAddNote(newNote: string){
         setNoteData([...noteData, newNote]);
-        myRef.current?.focus();
     }
 
     return(

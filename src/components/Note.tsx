@@ -2,13 +2,13 @@ import "./Note.css";
 
 type NoteProps = {
     text: string;
-    inRef: React.Ref<HTMLTextAreaElement>;
+    refTextArea: React.Ref<HTMLTextAreaElement>;
 }
 
-export default function Note({text, inRef}: NoteProps){
+export default function Note({text, refTextArea}: NoteProps){
     return(
         <div className="stickyNote">
-            <textarea className="textArea" defaultValue={text} ref={inRef}></textarea>
+            <textarea className="textArea" defaultValue={text} ref={refTextArea}></textarea>
         </div>
     );
 }
