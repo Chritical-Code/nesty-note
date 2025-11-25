@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRef } from 'react';
 import Section from "../components/Section";
-import "./NotePage.css";
+import styles from "./NotePage.module.css";
 import Toolbar from "../components/Toolbar";
 
 export default function NotePage(){
@@ -24,18 +24,17 @@ export default function NotePage(){
     //focus on correct note
     function focusNote(){
         refTextArea.current?.focus();
-        console.log(refTextArea.current)
     }
     
     return(
-        <div className="page">
-            <div className="title">
+        <div>
+            <div className={styles.title}>
                 <h1>Title</h1>
             </div>
 
             <Toolbar onAddSection={handleAddSection} />
 
-            <div className="sections">
+            <div className={styles.sections}>
                 {sections}
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { useState} from 'react';
 import { useEffect } from 'react';
 import Note from "./Note";
-import "./Section.css";
+import styles from "./Section.module.css";
 
 type SectionProps = {
     title: string;
@@ -30,16 +30,16 @@ export default function Section({title, refTextArea, focusNote}: SectionProps){
     }
 
     return(
-        <div className="section">
-            <div className="sectionTitle">
-                <h2>{title}</h2>
+        <div className={styles.section}>
+            <div className={styles.sectionTitle}>
+                <input className={styles.title} type="text" defaultValue={title}></input>
             </div>
 
-            <div className="notes">
+            <div className={styles.notes}>
                 {notes}
 
-                <div className="stickyNote addNoteDiv">
-                    <button className="addNote" onClick={() => handleAddNote("")}>add note</button>
+                <div className={styles.addNoteDiv}>
+                    <button className={styles.addNote} onClick={() => handleAddNote("")}>add note</button>
                 </div>
             </div>
         </div>

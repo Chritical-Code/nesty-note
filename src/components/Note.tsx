@@ -1,4 +1,4 @@
-import "./Note.css";
+import styles from "./Note.module.css";
 
 type NoteProps = {
     text: string;
@@ -7,8 +7,8 @@ type NoteProps = {
 
 export default function Note({text, refTextArea}: NoteProps){
     return(
-        <div className="stickyNote">
-            <textarea className="textArea" defaultValue={text} ref={refTextArea}></textarea>
+        <div className={styles.stickyNote}>
+            <textarea className={styles.textArea} defaultValue={text} ref={refTextArea}></textarea>
         </div>
     );
 }

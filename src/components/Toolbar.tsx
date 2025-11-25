@@ -1,4 +1,4 @@
-import "./Toolbar.css";
+import styles from "./Toolbar.module.css";
 
 type ToolbarProps = {
     onAddSection: Function;
@@ -6,10 +6,10 @@ type ToolbarProps = {
 
 export default function Toolbar({onAddSection}: ToolbarProps){
     return(
-        <div className="toolbar">
+        <div className={styles.toolbar}>
             <p>Toolbar:</p>
 
-            <button className="addSection" onClick={() => onAddSection("Test")}>Add Section</button>
+            <button className={styles.addSection} onClick={() => onAddSection("Test")}>Add Section</button>
         </div>
     );
 }
