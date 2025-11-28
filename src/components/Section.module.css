@@ -5,12 +5,22 @@
     width: 100%;
 }
 
-.sectionTitle{
-    text-align: center;
+.titleDiv{
+    align-items: center;
+    margin-top: 10px;
 }
 
 .title{
-    color: red;
+    width: 50%;
+    height: 50px;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    resize: none;
+
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .notes{

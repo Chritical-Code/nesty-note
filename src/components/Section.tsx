@@ -31,8 +31,8 @@ export default function Section({title, refTextArea, focusNote}: SectionProps){
 
     return(
         <div className={styles.section}>
-            <div className={styles.sectionTitle}>
-                <input className={styles.title} type="text" defaultValue={title}></input>
+            <div className={styles.titleDiv}>
+                <textarea className={styles.title} defaultValue={title}></textarea>
             </div>
 
             <div className={styles.notes}>

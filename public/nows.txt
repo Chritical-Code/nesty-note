@@ -1,10 +1,8 @@
 Nows
-+switch to css modules
-
-+fix vscode
++fix vscode lag
 
 +section titles editable
--prolly use input text, onchange, state
+-onchange, state
 
 
 Todo
