@@ -1,7 +1,7 @@
 Nows
 +fix vscode lag
 
-+rename refTextarea to refSelectedNote
++rename refTextarea to new note
 
 +note changes change state
 

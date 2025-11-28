@@ -7,12 +7,12 @@ import styles from "./Section.module.css";
 type SectionProps = {
     inKey: number;
     title: string;
-    refTextArea: React.Ref<HTMLTextAreaElement>;
+    refNewNote: React.Ref<HTMLTextAreaElement>;
     focusNote: Function;
     renameSection: Function;
 }
 
-export default function Section({inKey, title, refTextArea, focusNote, renameSection}: SectionProps){
+export default function Section({inKey, title, refNewNote, focusNote, renameSection}: SectionProps){
     const [noteData, setNoteData] = useState(Array(0));
     const refTitle = useRef<HTMLTextAreaElement>(null);
 
@@ -22,7 +22,7 @@ export default function Section({inKey, title, refTextArea, focusNote, renameSec
 
     const notes = noteData.map((inText, index) => {
         return(
-            <Note key={index} text={inText} refTextArea={refTextArea}></Note>
+            <Note key={index} text={inText} refNewNote={refNewNote}></Note>
         );
     });
     

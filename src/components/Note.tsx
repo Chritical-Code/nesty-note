@@ -2,13 +2,13 @@ import styles from "./Note.module.css";
 
 type NoteProps = {
     text: string;
-    refTextArea: React.Ref<HTMLTextAreaElement>;
+    refNewNote: React.Ref<HTMLTextAreaElement>;
 }
 
-export default function Note({text, refTextArea}: NoteProps){
+export default function Note({text, refNewNote}: NoteProps){
     return(
         <div className={styles.stickyNote}>
-            <textarea className={styles.textArea} defaultValue={text} ref={refTextArea}></textarea>
+            <textarea className={styles.textArea} defaultValue={text} ref={refNewNote}></textarea>
         </div>
     );
 }

@@ -6,28 +6,28 @@ import Toolbar from "../components/Toolbar";
 
 export default function NotePage(){
     const [sectionData, setSectionData] = useState(["Section 1"]);
-    const refTextArea = useRef<HTMLTextAreaElement>(null);
+    const refNewNote = useRef<HTMLTextAreaElement>(null);
 
     const sections = sectionData.map((inTitle, index) => {
         return(
-            <Section key={index} inKey={index} title={inTitle} refTextArea={refTextArea} focusNote={focusNote} renameSection={renameSection}></Section>
+            <Section key={index} inKey={index} title={inTitle} refNewNote={refNewNote} focusNote={focusNote} renameSection={renameSection}></Section>
         );
     });
 
     function handleAddSection(newSection: string){
         setSectionData([...sectionData, newSection])
-        refTextArea.current = null;
+        refNewNote.current = null;
     }
 
     function focusNote(){
-        refTextArea.current?.focus();
+        refNewNote.current?.focus();
     }
 
     function renameSection(inTitle: string, inKey: number){
         const newSectionData = [...sectionData];
         newSectionData[inKey] = inTitle;
         setSectionData(newSectionData);
-        refTextArea.current = null;
+        refNewNote.current = null;
     }
     
     return(
