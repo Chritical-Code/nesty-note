@@ -1,8 +1,9 @@
 Nows
 +fix vscode lag
 
-+section titles editable
--onchange, state
++rename refTextarea to refSelectedNote
+
++note changes change state
 
 
 Todo

@@ -9,7 +9,7 @@ export default function Toolbar({onAddSection}: ToolbarProps){
         <div className={styles.toolbar}>
             <p>Toolbar:</p>
 
-            <button className={styles.addSection} onClick={() => onAddSection("Test")}>Add Section</button>
+            <button className={styles.addSection} onClick={() => onAddSection("Section")}>Add Section</button>
         </div>
     );
 }

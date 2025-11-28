@@ -8,22 +8,26 @@ export default function NotePage(){
     const [sectionData, setSectionData] = useState(["Section 1"]);
     const refTextArea = useRef<HTMLTextAreaElement>(null);
 
-    //map section data to sections
     const sections = sectionData.map((inTitle, index) => {
         return(
-            <Section key={index} title={inTitle} refTextArea={refTextArea} focusNote={focusNote}></Section>
+            <Section key={index} inKey={index} title={inTitle} refTextArea={refTextArea} focusNote={focusNote} renameSection={renameSection}></Section>
         );
     });
 
-    //adding sections
     function handleAddSection(newSection: string){
         setSectionData([...sectionData, newSection])
         refTextArea.current = null;
     }
 
-    //focus on correct note
     function focusNote(){
         refTextArea.current?.focus();
+    }
+
+    function renameSection(inTitle: string, inKey: number){
+        const newSectionData = [...sectionData];
+        newSectionData[inKey] = inTitle;
+        setSectionData(newSectionData);
+        refTextArea.current = null;
     }
     
     return(
