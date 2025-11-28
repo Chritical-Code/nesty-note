@@ -10,9 +10,10 @@ type SectionProps = {
     refNewNote: React.Ref<HTMLTextAreaElement>;
     focusNote: Function;
     renameSection: Function;
+    clearRefNewNote: Function;
 }
 
-export default function Section({inKey, title, refNewNote, focusNote, renameSection}: SectionProps){
+export default function Section({inKey, title, refNewNote, focusNote, renameSection, clearRefNewNote}: SectionProps){
     const [noteData, setNoteData] = useState(Array(0));
     const refTitle = useRef<HTMLTextAreaElement>(null);
 
@@ -22,7 +23,7 @@ export default function Section({inKey, title, refNewNote, focusNote, renameSect
 
     const notes = noteData.map((inText, index) => {
         return(
-            <Note key={index} text={inText} refNewNote={refNewNote}></Note>
+            <Note key={index} inKey={index} text={inText} refNewNote={refNewNote} editNote={editNote}></Note>
         );
     });
     
@@ -32,6 +33,13 @@ export default function Section({inKey, title, refNewNote, focusNote, renameSect
 
     function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>){
         renameSection(event.target.value, inKey);
+    }
+
+    function editNote(inNote: string, inKey: number){
+        const newNoteData = [...noteData];
+        newNoteData[inKey] = inNote;
+        setNoteData(newNoteData);
+        clearRefNewNote();
     }
 
     return(

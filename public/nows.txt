@@ -1,10 +1,7 @@
 Nows
 +fix vscode lag
 
-+rename refTextarea to new note
-
 +note changes change state
-
 
 Todo
 +Add core functions

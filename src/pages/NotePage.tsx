@@ -10,13 +10,14 @@ export default function NotePage(){
 
     const sections = sectionData.map((inTitle, index) => {
         return(
-            <Section key={index} inKey={index} title={inTitle} refNewNote={refNewNote} focusNote={focusNote} renameSection={renameSection}></Section>
+            <Section key={index} inKey={index} title={inTitle} refNewNote={refNewNote} 
+            focusNote={focusNote} renameSection={renameSection} clearRefNewNote={clearRefNewNote}></Section>
         );
     });
 
     function handleAddSection(newSection: string){
         setSectionData([...sectionData, newSection])
-        refNewNote.current = null;
+        clearRefNewNote();
     }
 
     function focusNote(){
@@ -27,6 +28,10 @@ export default function NotePage(){
         const newSectionData = [...sectionData];
         newSectionData[inKey] = inTitle;
         setSectionData(newSectionData);
+        clearRefNewNote();
+    }
+
+    function clearRefNewNote(){
         refNewNote.current = null;
     }
     
