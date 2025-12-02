@@ -6,33 +6,37 @@ import Toolbar from "../components/Toolbar";
 
 export default function NotePage(){
     const [sectionData, setSectionData] = useState(["Section 1"]);
-    const refNewNote = useRef<HTMLTextAreaElement>(null);
+    const focusedTextArea = useRef<HTMLTextAreaElement>(null);
 
     const sections = sectionData.map((inTitle, index) => {
         return(
-            <Section key={index} inKey={index} title={inTitle} refNewNote={refNewNote} 
-            focusNote={focusNote} renameSection={renameSection} clearRefNewNote={clearRefNewNote}></Section>
+            <Section key={index} inKey={index} title={inTitle} focusOnTextArea={focusOnTextArea} 
+            renameSection={renameSection} clearFocusedTextArea={clearFocusedTextArea} setFocusedTextArea={setFocusedTextArea}></Section>
         );
     });
 
     function handleAddSection(newSection: string){
         setSectionData([...sectionData, newSection])
-        clearRefNewNote();
-    }
-
-    function focusNote(){
-        refNewNote.current?.focus();
+        clearFocusedTextArea();
     }
 
     function renameSection(inTitle: string, inKey: number){
         const newSectionData = [...sectionData];
         newSectionData[inKey] = inTitle;
         setSectionData(newSectionData);
-        clearRefNewNote();
+        clearFocusedTextArea();
     }
 
-    function clearRefNewNote(){
-        refNewNote.current = null;
+    function focusOnTextArea(){
+        focusedTextArea.current?.focus();
+    }
+
+    function setFocusedTextArea(textArea: HTMLTextAreaElement){
+        focusedTextArea.current = textArea;
+    }
+
+    function clearFocusedTextArea(){
+        focusedTextArea.current = null;
     }
     
     return(

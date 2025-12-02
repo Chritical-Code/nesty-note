@@ -12,7 +12,6 @@ Nows
 -ghost shows attempted placement
 
 +change how refs work
--each note references its own text area
 -send down a function from the top to set focus
 -call set focus when making anew or when clicking on note
 

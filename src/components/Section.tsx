@@ -7,23 +7,24 @@ import styles from "./Section.module.css";
 type SectionProps = {
     inKey: number;
     title: string;
-    refNewNote: React.Ref<HTMLTextAreaElement>;
-    focusNote: Function;
+    focusOnTextArea: Function;
     renameSection: Function;
-    clearRefNewNote: Function;
+    clearFocusedTextArea: Function;
+    setFocusedTextArea: Function;
 }
 
-export default function Section({inKey, title, refNewNote, focusNote, renameSection, clearRefNewNote}: SectionProps){
+export default function Section({inKey, title, focusOnTextArea, renameSection, clearFocusedTextArea, setFocusedTextArea}: SectionProps){
     const [noteData, setNoteData] = useState(Array(0));
     const refTitle = useRef<HTMLTextAreaElement>(null);
+    const [, setRedraw] = useState(0);
 
     useEffect(() => {
-        focusNote();
+        focusOnTextArea();
     });
 
     const notes = noteData.map((inText, index) => {
         return(
-            <Note key={index} inKey={index} text={inText} refNewNote={refNewNote} editNote={editNote}></Note>
+            <Note key={index} inKey={index} text={inText} editNote={editNote} setFocusedTextArea={setFocusedTextArea} redraw={redraw}></Note>
         );
     });
     
@@ -39,7 +40,11 @@ export default function Section({inKey, title, refNewNote, focusNote, renameSect
         const newNoteData = [...noteData];
         newNoteData[inKey] = inNote;
         setNoteData(newNoteData);
-        clearRefNewNote();
+        clearFocusedTextArea();
+    }
+
+    function redraw() {
+        setRedraw(x => x + 1);
     }
 
     return(
@@ -52,7 +57,7 @@ export default function Section({inKey, title, refNewNote, focusNote, renameSect
                 {notes}
 
                 <div className={styles.addNoteDiv}>
-                    <button className={styles.addNote} onClick={() => handleAddNote("default text")}>add note</button>
+                    <button className={styles.addNote} onClick={() => handleAddNote("")}>add note</button>
                 </div>
             </div>
         </div>
