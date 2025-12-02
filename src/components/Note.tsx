@@ -11,10 +11,15 @@ export default function Note({text, refNewNote, editNote, inKey}: NoteProps){
     function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>){
         editNote(event.target.value, inKey);
     }
+
+    function handleClick(){
+        alert("clicked note control");
+    }
     
     return(
         <div className={styles.stickyNote}>
             <textarea className={styles.textArea} defaultValue={text} ref={refNewNote} onChange={(event) => handleChange(event)}></textarea>
+            <div className={styles.noteControl} onClick={() => handleClick()}></div>
         </div>
     );
 }

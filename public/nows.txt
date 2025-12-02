@@ -1,13 +1,25 @@
 Nows
-+fix vscode lag
++moving notes
+-formulate a theory
+-practice run
+-iterate
 
-+note changes change state
++theory 1:
+-overlay a div on top to stop interaction with text area
+-click to open text area
+-hold to drag
+-release to place
+-ghost shows attempted placement
+
++change how refs work
+-each note references its own text area
+-send down a function from the top to set focus
+-call set focus when making anew or when clicking on note
+
 
 Todo
 +Add core functions
 -get one note working with mock data (probably unsaved)
- .adding uses actual text
- .moving notes
  .adding color
  .deleting notes
  .make look passable

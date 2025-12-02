@@ -10,6 +10,7 @@
 
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .textArea{
@@ -20,4 +21,20 @@
 
     border: none;
     resize: none;
+}
+.textArea:disabled{
+    color: black;
+}
+
+.noteControl{
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+}
+.noteControl:hover{
+    cursor: grab;
+}
+.noteControl:active{
+    cursor: grabbing;
 }

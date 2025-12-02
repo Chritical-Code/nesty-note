@@ -52,7 +52,7 @@ export default function Section({inKey, title, refNewNote, focusNote, renameSect
                 {notes}
 
                 <div className={styles.addNoteDiv}>
-                    <button className={styles.addNote} onClick={() => handleAddNote("")}>add note</button>
+                    <button className={styles.addNote} onClick={() => handleAddNote("default text")}>add note</button>
                 </div>
             </div>
         </div>
