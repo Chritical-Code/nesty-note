@@ -1,9 +1,3 @@
 .title{
     text-align: center;
 }
-
-.sections{
-    flex-direction: row;
-    overflow-x: scroll;
-    min-height: 100vh;
-}

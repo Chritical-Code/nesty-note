@@ -1,20 +1,13 @@
 Nows
-+moving notes
--formulate a theory
--practice run
--iterate
-
-+theory 1:
--overlay a div on top to stop interaction with text area
--click to open text area
++moving notes:
 -hold to drag
 -release to place
 -ghost shows attempted placement
 
-+change how refs work
--send down a function from the top to set focus
--call set focus when making anew or when clicking on note
-
++change how notes work
+-make focus work again
+-problem: we have to set focused in use effect, because the object is delayed, but this overwrites other sets. find a way to fix, either a bigger refactor or some tracker of some sort.
+-make a section master parent to handle focus
 
 Todo
 +Add core functions

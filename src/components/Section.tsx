@@ -1,45 +1,45 @@
 import { useState} from 'react';
-import { useEffect } from 'react';
 import { useRef } from 'react';
 import Note from "./Note";
 import styles from "./Section.module.css";
+import NoteModel from "../models/NoteModel";
 
 type SectionProps = {
     inKey: number;
     title: string;
-    focusOnTextArea: Function;
     renameSection: Function;
-    clearFocusedTextArea: Function;
     setFocusedTextArea: Function;
+    clearFocusedTextArea: Function;
+    noteData: NoteModel[];
+    addNote: Function;
 }
 
-export default function Section({inKey, title, focusOnTextArea, renameSection, clearFocusedTextArea, setFocusedTextArea}: SectionProps){
-    const [noteData, setNoteData] = useState(Array(0));
+export default function Section({inKey, title, setFocusedTextArea, renameSection, noteData, clearFocusedTextArea, addNote}: SectionProps){
     const refTitle = useRef<HTMLTextAreaElement>(null);
+    const emptyRef = useRef<HTMLTextAreaElement>(null);
     const [, setRedraw] = useState(0);
 
-    useEffect(() => {
-        focusOnTextArea();
-    });
-
-    const notes = noteData.map((inText, index) => {
+    const notes = noteData.map((note: NoteModel, index) => {
         return(
-            <Note key={index} inKey={index} text={inText} editNote={editNote} setFocusedTextArea={setFocusedTextArea} redraw={redraw}></Note>
+            <Note key={index} inKey={index} text={note.text} editNote={editNote} 
+            setFocusedTextArea={setFocusedTextArea} redraw={redraw} textArea={note.textArea}></Note>
         );
     });
     
-    function handleAddNote(newNote: string){
-        setNoteData([...noteData, newNote]);
+    function handleAddNote(inText: string){
+        const newNote = new NoteModel(inText, emptyRef, inKey);
+        addNote(newNote);
     }
 
-    function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>){
+    function handleChangeTitle(event: React.ChangeEvent<HTMLTextAreaElement>){
+        clearFocusedTextArea();
         renameSection(event.target.value, inKey);
     }
 
     function editNote(inNote: string, inKey: number){
         const newNoteData = [...noteData];
-        newNoteData[inKey] = inNote;
-        setNoteData(newNoteData);
+        newNoteData[inKey].text = inNote;
+        //setNoteData(newNoteData);
         clearFocusedTextArea();
     }
 
@@ -50,7 +50,7 @@ export default function Section({inKey, title, focusOnTextArea, renameSection, c
     return(
         <div className={styles.section}>
             <div className={styles.titleDiv}>
-                <textarea className={styles.title} defaultValue={title} onChange={(event) => handleChange(event)} ref={refTitle}></textarea>
+                <textarea className={styles.title} defaultValue={title} onChange={(event) => handleChangeTitle(event)} ref={refTitle}></textarea>
             </div>
 
             <div className={styles.notes}>

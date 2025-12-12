@@ -1,0 +1,5 @@
+.sections{
+    flex-direction: row;
+    overflow-x: scroll;
+    min-height: 100vh;
+}

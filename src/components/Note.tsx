@@ -1,5 +1,4 @@
 import styles from "./Note.module.css";
-import { useRef } from 'react';
 
 type NoteProps = {
     text: string;
@@ -7,11 +6,10 @@ type NoteProps = {
     inKey: number;
     setFocusedTextArea: Function;
     redraw: Function;
+    textArea: React.RefObject<HTMLTextAreaElement | null>;
 }
 
-export default function Note({text, editNote, inKey, setFocusedTextArea, redraw}: NoteProps){
-    const textArea = useRef<HTMLTextAreaElement>(null);
-    
+export default function Note({text, editNote, inKey, setFocusedTextArea, redraw, textArea}: NoteProps){
     function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>){
         editNote(event.target.value, inKey);
     }
