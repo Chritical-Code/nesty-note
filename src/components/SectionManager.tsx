@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import Section from "../components/Section";
 import Toolbar from "../components/Toolbar";
@@ -9,21 +9,25 @@ export default function SectionManager(){
     const [sectionData, setSectionData] = useState(["Section 1"]);
     const [noteData, setNoteData] = useState<NoteModel[]>([]);
     const focusedTextArea = useRef<HTMLTextAreaElement>(null);
+    const [, setRedraw] = useState(0);
+
+    //focus
+    useEffect(() => {
+        focusOnTextArea();
+    });
 
     //make an array to sectionize notes
     const secNotes: NoteModel[][] = Array.from({length: sectionData.length}, () => []);
-    //push notes to correct section
     noteData.forEach((note) => {
         if(note.section < sectionData.length){
             secNotes[note.section].push(note);
         }
     });
 
-    //map out to each section an array with their notes on it
     const sections = sectionData.map((inTitle, index) => {
         return(
-            <Section key={index} inKey={index} title={inTitle} setFocusedTextArea={focusOnTextArea} renameSection={renameSection} 
-            clearFocusedTextArea={clearFocusedTextArea} noteData={secNotes[index]} addNote={addNote}></Section>
+            <Section key={index} inKey={index} title={inTitle} setFocusedTextArea={setFocusedTextArea} renameSection={renameSection} 
+            clearFocusedTextArea={clearFocusedTextArea} noteData={secNotes[index]} addNote={addNote} redraw={redraw}></Section>
         );
     });
 
@@ -53,6 +57,10 @@ export default function SectionManager(){
 
     function addNote(newNote: NoteModel){
         setNoteData([...noteData, newNote]);
+    }
+
+    function redraw() {
+        setRedraw(x => x + 1);
     }
 
     return(

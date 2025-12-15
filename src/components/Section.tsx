@@ -1,4 +1,3 @@
-import { useState} from 'react';
 import { useRef } from 'react';
 import Note from "./Note";
 import styles from "./Section.module.css";
@@ -12,12 +11,12 @@ type SectionProps = {
     clearFocusedTextArea: Function;
     noteData: NoteModel[];
     addNote: Function;
+    redraw: Function;
 }
 
-export default function Section({inKey, title, setFocusedTextArea, renameSection, noteData, clearFocusedTextArea, addNote}: SectionProps){
+export default function Section({inKey, title, setFocusedTextArea, renameSection, noteData, clearFocusedTextArea, addNote, redraw}: SectionProps){
     const refTitle = useRef<HTMLTextAreaElement>(null);
     const emptyRef = useRef<HTMLTextAreaElement>(null);
-    const [, setRedraw] = useState(0);
 
     const notes = noteData.map((note: NoteModel, index) => {
         return(
@@ -41,10 +40,6 @@ export default function Section({inKey, title, setFocusedTextArea, renameSection
         newNoteData[inKey].text = inNote;
         //setNoteData(newNoteData);
         clearFocusedTextArea();
-    }
-
-    function redraw() {
-        setRedraw(x => x + 1);
     }
 
     return(

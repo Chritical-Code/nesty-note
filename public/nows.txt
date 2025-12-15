@@ -4,10 +4,8 @@ Nows
 -release to place
 -ghost shows attempted placement
 
-+change how notes work
--make focus work again
--problem: we have to set focused in use effect, because the object is delayed, but this overwrites other sets. find a way to fix, either a bigger refactor or some tracker of some sort.
--make a section master parent to handle focus
++note focus
+-focus on new
 
 Todo
 +Add core functions

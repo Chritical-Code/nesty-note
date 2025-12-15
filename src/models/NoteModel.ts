@@ -5,7 +5,7 @@ export default class NoteModel{
 
     constructor(text: string, emptyRef: React.RefObject<HTMLTextAreaElement | null>, section: number){
         this.text = text;
-        this.textArea = emptyRef;
+        this.textArea = {...emptyRef};
         this.section = section;
     }
 }
