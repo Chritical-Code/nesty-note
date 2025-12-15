@@ -4,9 +4,6 @@ Nows
 -release to place
 -ghost shows attempted placement
 
-+note focus
--focus on new
-
 Todo
 +Add core functions
 -get one note working with mock data (probably unsaved)

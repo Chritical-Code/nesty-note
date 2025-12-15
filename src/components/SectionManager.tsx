@@ -8,12 +8,19 @@ import NoteModel from "../models/NoteModel";
 export default function SectionManager(){
     const [sectionData, setSectionData] = useState(["Section 1"]);
     const [noteData, setNoteData] = useState<NoteModel[]>([]);
+    const [focusNew, setFocusNew] = useState<boolean>(false);
     const focusedTextArea = useRef<HTMLTextAreaElement>(null);
     const [, setRedraw] = useState(0);
 
     //focus
     useEffect(() => {
-        focusOnTextArea();
+        if(focusNew){
+            focusedTextArea.current = noteData[noteData.length - 1].textArea.current;
+            setFocusNew(false);
+        }
+        else{
+            focusOnTextArea();
+        }
     });
 
     //make an array to sectionize notes
@@ -57,6 +64,7 @@ export default function SectionManager(){
 
     function addNote(newNote: NoteModel){
         setNoteData([...noteData, newNote]);
+        setFocusNew(true);
     }
 
     function editNote(inNote: string, inKey: number){
