@@ -11,10 +11,11 @@ type SectionProps = {
     clearFocusedTextArea: Function;
     noteData: NoteModel[];
     addNote: Function;
+    editNote: Function;
     redraw: Function;
 }
 
-export default function Section({inKey, title, setFocusedTextArea, renameSection, noteData, clearFocusedTextArea, addNote, redraw}: SectionProps){
+export default function Section({inKey, title, setFocusedTextArea, renameSection, noteData, clearFocusedTextArea, addNote, editNote, redraw}: SectionProps){
     const refTitle = useRef<HTMLTextAreaElement>(null);
     const emptyRef = useRef<HTMLTextAreaElement>(null);
 
@@ -33,13 +34,6 @@ export default function Section({inKey, title, setFocusedTextArea, renameSection
     function handleChangeTitle(event: React.ChangeEvent<HTMLTextAreaElement>){
         clearFocusedTextArea();
         renameSection(event.target.value, inKey);
-    }
-
-    function editNote(inNote: string, inKey: number){
-        const newNoteData = [...noteData];
-        newNoteData[inKey].text = inNote;
-        //setNoteData(newNoteData);
-        clearFocusedTextArea();
     }
 
     return(

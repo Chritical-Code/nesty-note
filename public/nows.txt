@@ -16,6 +16,9 @@ Todo
 -add nesting and data saving
  .idk what order to do these in
 
+Future bugs
++why was note state updating without me needing to call the set function? should i remove it?
+
 
 
 Roadmap

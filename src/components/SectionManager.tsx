@@ -27,7 +27,7 @@ export default function SectionManager(){
     const sections = sectionData.map((inTitle, index) => {
         return(
             <Section key={index} inKey={index} title={inTitle} setFocusedTextArea={setFocusedTextArea} renameSection={renameSection} 
-            clearFocusedTextArea={clearFocusedTextArea} noteData={secNotes[index]} addNote={addNote} redraw={redraw}></Section>
+            clearFocusedTextArea={clearFocusedTextArea} noteData={secNotes[index]} addNote={addNote} editNote={editNote} redraw={redraw}></Section>
         );
     });
 
@@ -57,6 +57,13 @@ export default function SectionManager(){
 
     function addNote(newNote: NoteModel){
         setNoteData([...noteData, newNote]);
+    }
+
+    function editNote(inNote: string, inKey: number){
+        const newNoteData = [...noteData];
+        newNoteData[inKey].text = inNote;
+        setNoteData(newNoteData);
+        clearFocusedTextArea();
     }
 
     function redraw() {
