@@ -1,8 +1,11 @@
 Nows
 +moving notes:
--hold to drag
+-hold to drag lil note
+ .ondown onup with timer?
+ .drag mode, click mode, timer
+-original note effects
+-ghost note shows placement
 -release to place
--ghost shows attempted placement
 
 Todo
 +Add core functions
