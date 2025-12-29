@@ -31,7 +31,11 @@ export default function Note({text, editNote, inKey, setFocusedTextArea, redraw,
         setMouseMode("edit")
         timer.current = setTimeout(() => {
             setMouseMode("drag");
-        }, 500);
+            
+            //enable mouse follower
+            //enable selected note effect
+            //enable prediction ghost
+        }, 250);
     }
 
     function handleMouseUp(){
@@ -44,13 +48,20 @@ export default function Note({text, editNote, inKey, setFocusedTextArea, redraw,
         else if(mouseMode == "drag"){
             setMouseMode("none");
             clearTimeout(timer.current);
+
+            //disable mouse follower
+            //disable selected note effect
+            //disable prediction ghost
+            //move note
         }
     }
     
     return(
-        <div className={styles.stickyNote}>
-            <textarea className={styles.textArea} defaultValue={text} ref={textArea} onChange={(event) => handleChange(event)}></textarea>
-            <div className={styles.noteControl} onMouseDown={() => handleMouseDown()} onMouseUp={() => handleMouseUp()}></div>
-        </div>
+        <>
+            <div className={styles.stickyNote}>
+                <textarea className={styles.textArea} defaultValue={text} ref={textArea} onChange={(event) => handleChange(event)}></textarea>
+                <div className={styles.noteControl} onMouseDown={() => handleMouseDown()} onMouseUp={() => handleMouseUp()}></div>
+            </div>
+        </>
     );
 }
