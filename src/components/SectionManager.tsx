@@ -4,15 +4,12 @@ import Section from "../components/Section";
 import Toolbar from "../components/Toolbar";
 import styles from "./SectionManager.module.css";
 import NoteModel from "../models/NoteModel";
-import Follower from "./Follower";
-import MouseControls from "./MouseControls";
 
 export default function SectionManager(){
     const [sectionData, setSectionData] = useState(["Section 1"]);
     const [noteData, setNoteData] = useState<NoteModel[]>([]);
-    const focusedTextArea = useRef<HTMLTextAreaElement>(null);
     const [focusNew, setFocusNew] = useState<boolean>(false);
-    const [mouseMode, setMouseMode] = useState("none");
+    const focusedTextArea = useRef<HTMLTextAreaElement>(null);
     const [, setRedraw] = useState(0);
 
     //focus
@@ -88,10 +85,6 @@ export default function SectionManager(){
             <div className={styles.sections}>
                 {sections}
             </div>
-
-            <Follower mouseMode={mouseMode}></Follower>
-
-            <MouseControls></MouseControls>
         </>
     );
 }

@@ -1,14 +1,11 @@
 Nows
 +moving notes:
--refactor: pull up follower logic, have a seperate mouse handler component that refers to the pulled up follow state
- .many mice down for selection purposes, one mouse up logic center
--lil note follows cursor
+-hold to drag lil note
+ .ondown onup with timer?
+ .drag mode, click mode, timer
 -original note effects
 -ghost note shows placement
 -release to place
-
-+refactor: use context and children to have fewer props
-+refactor: organize components folder
 
 Todo
 +Add core functions
